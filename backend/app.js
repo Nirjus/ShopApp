@@ -12,8 +12,8 @@ app.use(cors({
     origin:"https://shop-app-s8q6.vercel.app/",
     credentials:true,
 }));
-app.use("/",express.static("uploads"));
-app.use("/", (req, res) => {
+app.use("/",express.static(path.join(__dirname,"./uploads")));
+app.use("/test", (req, res) => {
     res.send("Backend Running");
 });
 app.use(bodyParser.urlencoded({extended:true}));
