@@ -9,14 +9,14 @@ const path = require("path");
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin:"https://shop-app-s8q6.vercel.app/",
+    origin:"https://shop-app-s8q6.vercel.app",
     credentials:true,
 }));
 app.use("/",express.static(path.join(__dirname,"./uploads")));
 app.use("/test", (req, res) => {
     res.send("Backend Running");
 });
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:true, limit: "50mb"}));
 
 
 
