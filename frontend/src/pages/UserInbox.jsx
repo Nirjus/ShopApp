@@ -26,7 +26,7 @@ const UserInbox = () => {
   const [open, setOpen] = useState(false);
   const [images, setImages] = useState();
   const scrollRef = useRef(null);
-
+  
   useEffect(() => {
     socketId.on("getMessage", (data) => {
       setArrivalMessage({
@@ -248,7 +248,6 @@ const MessageList = ({
   const [active, setActive] = useState(0);
   const [user, setUser] = useState([]);
   const navigate = useNavigate();
-
   const handleClick = (id) => {
     navigate(`/inbox?${id}`);
     setOpen(true);
