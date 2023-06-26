@@ -1,3 +1,3 @@
-export const server = "https://combative-dog-leather-jacket.cyclic.app/api/v2";
+export const server = "http://localhost:8000/api/v2";
 
-export const backend_url = "https://combative-dog-leather-jacket.cyclic.app/"
+export const backend_url = "http://localhost:8000/"
