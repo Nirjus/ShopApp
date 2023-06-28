@@ -1,3 +1,3 @@
-export const server = "https://teal-ill-kitten.cyclic.app/api/v2";
+export const server = "https://ecommerce-market-project.herokuapp.com/api/v2";
 
-export const backend_url = "https://teal-ill-kitten.cyclic.app/"
+export const backend_url = "https://ecommerce-market-project.herokuapp.com/"
