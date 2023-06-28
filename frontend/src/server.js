@@ -1,3 +1,3 @@
-export const server = "https://ecommerce-market-project.herokuapp.com/api/v2";
+export const server = "https://shop-app-backend.vercel.app/api/v2";
 
-export const backend_url = "https://ecommerce-market-project.herokuapp.com/"
+export const backend_url = "https://shop-app-backend.vercel.app/"
