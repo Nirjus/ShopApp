@@ -1,3 +1,3 @@
-export const server = "https://shop-app-backend.vercel.app/api/v2";
+export const server = "http://43.205.118.8:8000/api/v2";
 
-export const backend_url = "https://shop-app-backend.vercel.app/"
+export const backend_url = "http://43.205.118.8:8000/"
