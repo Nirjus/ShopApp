@@ -10,7 +10,7 @@ import styles from "../styles/style";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { GrGallery } from "react-icons/gr";
 import { AiOutlineSend } from "react-icons/ai";
-const ENDPOINT = "http://localhost:5000/";
+const ENDPOINT = "https://socket-ecommerce-moyl.onrender.com/";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const UserInbox = () => {
