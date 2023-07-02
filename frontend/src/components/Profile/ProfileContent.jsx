@@ -51,7 +51,7 @@ const ProfileContent = ({ active }) => {
     setAvatar(file);
 
     const formData = new FormData();
-    formData.append("image", e.target.files[0]);
+    formData.append("image", file);
 
     await axios
       .put(`${server}/user/update-avatar`, formData, {
