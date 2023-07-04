@@ -29,7 +29,7 @@ const Signup = () => {
     e.preventDefault();
 
    axios
-      .post(`${server}/user/create-user`, newfrom, config)
+      .post(`${server}/user/create-user`,  { name, email, password, avatar })
       .then((res) => {
        toast.success(res.data.message);
        setName("");
