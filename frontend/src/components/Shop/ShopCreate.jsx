@@ -21,7 +21,7 @@ const ShopCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   await axios
+   axios
       .post(`${server}/shop/create-shop`, {
         name,
         email,
@@ -226,6 +226,7 @@ const ShopCreate = () => {
                     type="file"
                     name="avatar"
                     id="file-input"
+                    accept=".jpg,.jpeg,.png"
                     onChange={handelFileInputChange}
                     className="sr-only"
                   />
