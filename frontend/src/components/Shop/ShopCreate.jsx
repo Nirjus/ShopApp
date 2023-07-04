@@ -21,7 +21,7 @@ const ShopCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   axios
+   await axios
       .post(`${server}/shop/create-shop`, {
         name,
         email,
