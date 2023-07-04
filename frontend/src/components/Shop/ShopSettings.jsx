@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { backend_url, server } from "../../server";
+import { server } from "../../server";
 import { AiOutlineCamera } from "react-icons/ai";
 import styles from "../../styles/style";
 import axios from "axios";
@@ -58,7 +58,7 @@ const dispatch = useDispatch();
           <div className="relative" style={{border:"2px solid cyan", borderRadius:"50%"}}>
             <img
               src={
-                avatar ? URL.createObjectURL(avatar) : `${backend_url}/${seller.avatar}`
+                avatar ? avatar : `${seller.avatar?.url}`
               }
               alt=""
               className=" w-[200px] h-[200px] rounded-full cursor-pointer"

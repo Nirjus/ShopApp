@@ -3,7 +3,7 @@ import { BsFillBagFill } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/style";
-import { backend_url, server } from "../server";
+import { server } from "../server";
 import { getAllOrdersOfUser } from "../redux/actions/order";
 import { RxCross1 } from "react-icons/rx";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
@@ -88,7 +88,7 @@ const UserOrderDetails = () => {
         data?.cart.map((item, index) => (
           <div className="w-full flex items-start mb-5">
             <img
-              src={`${backend_url}/${item.images[0]}`}
+              src={`${item.images[0]?.url}`}
               alt=""
               className=" w-[100px] h-[100px]"
             />
@@ -128,7 +128,7 @@ const UserOrderDetails = () => {
             <br />
             <div className="w-full flex">
               <img
-                src={`${backend_url}/${selectedItem?.images[0]}`}
+                src={`${selectedItem?.images[0]?.url}`}
                 alt=""
                 className=" w-[80px] h-[80px]"
               />

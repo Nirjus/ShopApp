@@ -13,7 +13,6 @@ import { BiMenuAltLeft, BiMenuAltRight } from "react-icons/bi";
 import Dropdown from "./Dropdown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
-import { backend_url } from "../../server";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
@@ -86,7 +85,7 @@ const Header = ({ activeHeading }) => {
                       <Link to={`/product/${i._id}`}>
                         <div className=" w-full flex items-start py-3">
                           <img
-                            src={`${backend_url}${i.images[0]}`}
+                            src={`${i.images[0]?.url}`}
                             alt=""
                             className=" w-[40px] h-[40px] mr-[10px]"
                           />
@@ -172,7 +171,7 @@ const Header = ({ activeHeading }) => {
                 {isAuthenticated ? (
                   <Link to="/profile">
                     <img
-                      src={`${backend_url}${user.avatar}`}
+                      src={`${user?.avatar?.url}`}
                       className=" w-[40px] h-[40px] rounded-full"
                       alt=""
                     />
@@ -279,7 +278,7 @@ const Header = ({ activeHeading }) => {
                           <Link to={`/product/${i._id}`}>
                             <div className=" w-full flex items-start py-3">
                               <img
-                                src={`${backend_url}${i.images[0]}`}
+                                src={`${i.images[0]?.url}`}
                                 alt=""
                                 className=" w-[40px] h-[40px] mr-[10px]"
                               />
@@ -309,7 +308,7 @@ const Header = ({ activeHeading }) => {
                   <div>
                     <Link to="/profile">
                       <img
-                        src={`${backend_url}${user.avatar}`}
+                        src={`${user.avatar?.url}`}
                         alt=""
                         className=" w-[60px] h-[60px] rounded-full border-[3px] border-[#1dc8f3]"
                       />

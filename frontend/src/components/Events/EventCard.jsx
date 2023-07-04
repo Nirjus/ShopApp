@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../../styles/style";
 import CountDown from "./CountDown/CountDown";
-import { backend_url } from "../../server";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addTocart } from "../../redux/actions/cart";
@@ -31,7 +30,7 @@ const EventCard = ({ active, data }) => {
       } lg:flex p-2`}
     >
       <div className="w-full lg:-w[50%] m-auto">
-        <img src={`${backend_url}${data.images[0]}`} alt="" />
+        <img src={`${data.images[0]?.url}`} alt="" />
       </div>
       <div className="w-full lg:[w-50%] flex flex-col justify-center ">
         <h2 className={`${styles.productTitle}`}> {data.name}</h2>

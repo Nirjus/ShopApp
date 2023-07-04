@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import styles from "../../styles/style";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsShop } from "../../redux/actions/product";
-import { backend_url } from "../../server";
 import { getAllEventsShop } from "../../redux/actions/event";
 import Ratings from "../Products/Ratings";
 import { format } from "timeago.js";
@@ -109,7 +108,7 @@ console.log(allReviews);
             allReviews.map((item, index) => (
               <div className="w-full flex my-4">
                 <img
-                  src={`${backend_url}/${item.user.avatar}`}
+                  src={`${item.user.avatar?.url}`}
                   alt=""
                   className=" w-[50px] h-[50px] rounded-full"
                 />
