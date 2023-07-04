@@ -41,25 +41,24 @@ const ProfileContent = ({ active }) => {
       dispatch({ type: "clearMessages" });
     }
   }, [error, successMessage]);
+
   const hadleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateUserInformation(name, email, phoneNumber, password));
   };
 
   const handleImage = async (e) => {
-    const file = e.target.files[0];
-    setAvatar(file);
-
-    const formData = new FormData();
-    formData.append("image", file);
-
-    await axios
-      .put(`${server}/user/update-avatar`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      })
+    const reader = new FileReader();
+    
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setAvatar(reader.result);
+   axios.put(`${server}/user/update-avatar`,
+   { avatar: reader.result },
+   {
+     withCredentials: true,
+   }
+   )
       .then((res) => {
       dispatch(loadUser());
       toast.success("Profile picture updated successfully");
@@ -67,7 +66,10 @@ const ProfileContent = ({ active }) => {
       .catch((error) => {
         toast.error(error);
       });
+    }
   };
+  reader.readAsDataURL(e.target.files[0]);
+};
 
   return (
     <div className=" w-full ">

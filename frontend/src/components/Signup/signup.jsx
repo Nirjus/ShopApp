@@ -14,19 +14,19 @@ const Signup = () => {
   const [avatar, setAvatar] = useState(null);
 
   const handelFileInputChange = (e) => {
-    const file = e.target.files[0];
-    setAvatar(file);
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setAvatar(reader.result);
+      }
+    };
+
+    reader.readAsDataURL(e.target.files[0]);
   };
 
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
-
-    const newfrom = new FormData();
-    newfrom.append("file", avatar);
-    newfrom.append("name", name);
-    newfrom.append("email", email);
-    newfrom.append("password", password);
 
    axios
       .post(`${server}/user/create-user`, newfrom, config)
@@ -131,7 +131,7 @@ const Signup = () => {
                 <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                   {avatar ? (
                     <img
-                      src={URL.createObjectURL(avatar)}
+                      src={avatar}
                       alt="avatar"
                       className="h-full w-full object-cover rounded-full"
                     />

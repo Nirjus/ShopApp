@@ -19,29 +19,29 @@ const ShopSettings = () => {
 const dispatch = useDispatch();
 
   const handleImage = async(e) => {
-    e.preventDefault();
-    const file = e.target.files[0];
-    setAvatar(file);
-
-    const formData = new FormData();
-
-    formData.append("image", e.target.files[0]);
-     await axios.put(`${server}/shop/update-shop-avatar`, formData, {
-        headers:{
-            "Content-Type":"multipart/form-data",
-        },withCredentials:true
+    const reader = new FileReader();
+   
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setAvatar(reader.result);
+      axios.put(`${server}/shop/update-shop-avatar`,
+      { avatar: reader.result },
+     {
+       withCredentials: true,
      }).then((res) => {
-        dispatch(loadSeller);
+        dispatch(loadSeller());
         toast.success("Profile picture updated successfully")
      }).catch((error) => {
         toast.error(error.response.data.message);
      })
+    }
   };
-
+  reader.readAsDataURL(e.target.files[0]);
+};
   const updateHandler = async(e) =>  {
     e.preventDefault();
 
-    await axios.put(`${server}/shop/update-seller-info`,{
+     axios.put(`${server}/shop/update-seller-info`,{
         name, description, address, phoneNumber, zipCode,
     },{withCredentials:true}).then((res) => {
         toast.success("Shop Data updated successfully");
