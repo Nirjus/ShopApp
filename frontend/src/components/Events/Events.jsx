@@ -15,7 +15,7 @@ const Events = () => {
           <div className="w-full grid">
             {allEvents.legth !== 0 && (
              <>
-                {/* <EventCard data={allEvents && allEvents[0]} /> */}
+                <EventCard data={allEvents && allEvents[0]} />
               {/* <EventCard data={allEvents && allEvents[1]} /> */}
              </>
 
