@@ -4,7 +4,7 @@ import { server } from "../../server";
 import styles from "../../styles/style";
 import axios from "axios";
 import Loader from "../Layout/Loader";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import { toast } from "react-toastify";
 
@@ -14,6 +14,7 @@ const ShopInfo = ({ isOwner }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getAllProductsShop(id));
