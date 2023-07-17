@@ -42,3 +42,28 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* Home page */
+.main-banner-content{
+  top: 20%;
+  left: 7%;
+}
+.small-banner-content{
+  top: 28%;
+  left: 7%;
+}
+
+.carousel .thumbs-wrapper {
+  margin: 20px;
+  overflow: hidden;
+  display: none;
+}
+
+.carousel .thumbs {
+  transition: all .15s ease-in;
+  transform: translate3d(0, 0, 0);
+  position: relative;
+  list-style: none;
+  white-space: nowrap;
+  display: none;
+}
