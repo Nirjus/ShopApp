@@ -144,9 +144,9 @@ const DashboardHero = () => {
         </div>
         <br />
         <h3 className=' text-[22px] font-Poppins pb-2'>Latest Orders</h3>
-     <div className=" w-[90%] min-h-[45vh] bg-white rounded shadow">
+     <div className=" w-full h-auto bg-white rounded shadow">
     
-        <div className=" w-full mx-8 pt-1 mt-10 bg-white">
+        <div className=" w-[92%] mx-8 pt-1 mt-10 bg-white">
           <DataGrid
             rows={row}
             columns={columns}
