@@ -54,8 +54,8 @@ const DashboardHero = () => {
     
         {
           field: " ",
-          flex: 1,
-          minWidth: 150,
+          flex: 0.7,
+          minWidth: 130,
           headerName: "",
           type: "number",
           sortable: false,
@@ -144,7 +144,7 @@ const DashboardHero = () => {
         </div>
         <br />
         <h3 className=' text-[22px] font-Poppins pb-2'>Latest Orders</h3>
-     <div className="w-full min-h-[45vh] bg-white rounded shadow">
+     <div className=" w-[90%] min-h-[45vh] bg-white rounded shadow">
     
         <div className=" w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
