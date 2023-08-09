@@ -13,7 +13,7 @@ const Hero = () => {
     <div className={`w-full sm:w-[95%] md:w-[80%] lg:w-[70%] xl:w-[50%] bg-no-repeat ${styles.noramlFlex}`}
     >
      <div className=" relative p-3">
-     <Carousel>
+     <Carousel infiniteLoop autoPlay interval={3000} showThumbs={false} showStatus={false} showArrows={false}>
      <div>
      <img
         src="images/main-banner-1.jpg"
