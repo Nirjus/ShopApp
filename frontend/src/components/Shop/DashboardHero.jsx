@@ -150,9 +150,10 @@ const DashboardHero = () => {
           <DataGrid
             rows={row}
             columns={columns}
-            pageSize={10}
+            pageSize={5}
             disableSelectionOnClick
             autoHeight
+            
           />
         </div>
      
