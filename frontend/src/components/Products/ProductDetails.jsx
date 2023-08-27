@@ -40,7 +40,7 @@ const ProductDetails = ({ data }) => {
     }
   }, [data, wishlist]);
   useEffect(() => {
-    const {id} = data?.shop?._id;
+    const id = data?._id;
     axios
       .get(`${server}/shop/get-shop-info/${id}`)
       .then((res) => {
