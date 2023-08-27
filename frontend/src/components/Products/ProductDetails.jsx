@@ -18,6 +18,7 @@ import { addTocart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
+import img from "../../../public/images/catbanner-01.jpg";
 
 const ProductDetails = ({ data }) => {
   const { cart } = useSelector((state) => state.cart);
@@ -200,7 +201,7 @@ const ProductDetails = ({ data }) => {
                 <div className="flex items-center pt-8">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
-                      src={`${data?.shop?.avatar?.url}`}
+                      src={`${data?.shop?.avatar?.url || img}`}
                       alt=""
                       className=" w-[50px] h-[50px] rounded-full mr-2"
                     />
@@ -342,7 +343,7 @@ const ProductDetailsInfo = ({
             <Link to={`/shop/preview/${data.shop._id}`}>
               <div className="flex items-center">
                 <img
-                  src={`${data?.shop?.avatar?.url}`}
+                  src={`${data?.shop?.avatar?.url || img}`}
                   alt=""
                   className=" w-[50px] h-[50px] rounded-full"
                 />
