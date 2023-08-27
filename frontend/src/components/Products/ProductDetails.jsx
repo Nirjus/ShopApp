@@ -40,7 +40,7 @@ const ProductDetails = ({ data }) => {
     }
   }, [data, wishlist]);
   useEffect(() => {
-    const id = data.shop._id;
+    const {id} = data.shop._id;
     axios
       .get(`${server}/shop/get-shop-info/${id}`)
       .then((res) => {
@@ -358,7 +358,7 @@ const ProductDetailsInfo = ({
             <Link to={`/shop/preview/${data.shop._id}`}>
               <div className="flex items-center">
                 <img
-                   src={newAvatar.shop?.url}
+                   src={newAvatar.avatar?.url}
                   alt=""
                   className=" w-[50px] h-[50px] rounded-full"
                 />
