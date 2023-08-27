@@ -18,7 +18,7 @@ import { addTocart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
-import img from "../../../public/images/catbanner-01.jpg";
+import img from "../../Assets/product5.jpg";
 
 const ProductDetails = ({ data }) => {
   const { cart } = useSelector((state) => state.cart);
