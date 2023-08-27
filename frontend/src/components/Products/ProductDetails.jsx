@@ -20,7 +20,6 @@ import Ratings from "./Ratings";
 import axios from "axios";
 
 const ProductDetails = ({ data }) => {
-  const { seller } = useSelector((state) => state.seller);
   const { cart } = useSelector((state) => state.cart);
   const { user,isAuthenticated } = useSelector((state) => state.user);
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -202,7 +201,7 @@ const ProductDetails = ({ data }) => {
                 <div className="flex items-center pt-8">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
-                      src={`${seller.avatar?.url}`}
+                      src={`${data?.shop?.avatar.url}`}
                       alt=""
                       className=" w-[50px] h-[50px] rounded-full mr-2"
                     />
