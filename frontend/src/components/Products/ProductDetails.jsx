@@ -27,11 +27,13 @@ const ProductDetails = ({ data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const [select, setSelect] = useState(0);
+  const [newAvatar, setNewAvatar] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
   useEffect(() => {
     dispatch(getAllProductsShop(data && data?.shop._id));
+    setNewAvatar(data?.shop?.avatar?.url);
     if (wishlist && wishlist.find((i) => i._id === data?._id)) {
       setClick(true);
     } else {
@@ -200,7 +202,7 @@ const ProductDetails = ({ data }) => {
                 <div className="flex items-center pt-8">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
-                      src={`${data?.shop?.avatar?.url}`}
+                      src={`${newAvatar}`}
                       alt=""
                       className=" w-[50px] h-[50px] rounded-full mr-2"
                     />
