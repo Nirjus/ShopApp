@@ -27,7 +27,6 @@ const ProductDetails = ({ data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const [select, setSelect] = useState(0);
-  const [newAvatar, setNewAvatar] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
@@ -39,20 +38,7 @@ const ProductDetails = ({ data }) => {
       setClick(false);
     }
   }, [data, wishlist]);
-  useEffect(() => {
-    const id = data?._id;
-    axios
-      .get(`${server}/shop/get-shop-info/${id}`)
-      .then((res) => {
-        setNewAvatar(res.data.shop);
-       
-      })
-      .catch((error) => {
-        console.log(error);
-       
-      });
-  },[])
-
+ 
   const incrementCount = () => {
     setCount(count + 1);
   };
@@ -214,7 +200,7 @@ const ProductDetails = ({ data }) => {
                 <div className="flex items-center pt-8">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
-                      src={newAvatar.avatar?.url}
+                      src={data?.shop?.avatar?.url}
                       alt=""
                       className=" w-[50px] h-[50px] rounded-full mr-2"
                     />
@@ -246,7 +232,6 @@ const ProductDetails = ({ data }) => {
             products={products}
             totalReviewsLength={totalReviewsLength}
             averageRating={averageRating}
-            newAvatar={newAvatar}
           />
           <br />
           <br />
@@ -261,7 +246,6 @@ const ProductDetailsInfo = ({
   products,
   totalReviewsLength,
   averageRating,
-  newAvatar,
 }) => {
   const [active, setActive] = useState(1);
   return (
@@ -358,7 +342,7 @@ const ProductDetailsInfo = ({
             <Link to={`/shop/preview/${data.shop._id}`}>
               <div className="flex items-center">
                 <img
-                   src={newAvatar.avatar?.url}
+                   src={data?.shop?.avatar?.url}
                   alt=""
                   className=" w-[50px] h-[50px] rounded-full"
                 />
