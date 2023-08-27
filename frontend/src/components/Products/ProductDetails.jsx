@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "../../styles/style";
 import {
   AiFillHeart,
@@ -27,12 +27,17 @@ const ProductDetails = ({ data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const [select, setSelect] = useState(0);
+  const [newAvatar, setNewAvatar] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
   useEffect(() => {
     dispatch(getAllProductsShop(data && data?.shop._id));
-    
+    const params = useParams(data?.shop._id);
+    if(params){
+      const {avatarUrl} = axios.get(`${server}/shop/get-shop-info/${params}`)
+      setNewAvatar(avatarUrl?.avatar?.url);
+    }
     if (wishlist && wishlist.find((i) => i._id === data?._id)) {
       setClick(true);
     } else {
@@ -201,7 +206,7 @@ const ProductDetails = ({ data }) => {
                 <div className="flex items-center pt-8">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
-                      src={`${data?.shop?.avatar.url}`}
+                      src={`${newAvatar}`}
                       alt=""
                       className=" w-[50px] h-[50px] rounded-full mr-2"
                     />
