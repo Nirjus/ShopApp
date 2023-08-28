@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillFacebook, AiFillInstagram, AiFillYoutube, AiOutlineTwitter } from "react-icons/ai";
 import { footerProductLinks, footerSupportLinks, footercompanyLinks } from "../../static/data";
 import { Link } from "react-router-dom";
+import img from "../../Assets/Smart ShopBV_1.png"
 
 const Footer = () => {
   return (
@@ -28,11 +29,13 @@ const Footer = () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
+        <div className=" h-[100px] w-full flex items-center">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+            src={img}
             alt=""
-            style={{ filter: "brightness(0) invert(1)" }}
+            className=" h-[230px] max-800px:w-full object-contain"
           />
+          </div>
           <br />
           <p>The home and element neaded to create beautiful products.</p>
           <div className="flex items-center mt-[15px]">

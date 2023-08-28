@@ -5,16 +5,18 @@ import { FiPackage, FiShoppingBag } from "react-icons/fi";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import img from "../../Assets/Smart ShopBV_1.png"
 
 const AdminHeader = () => {
   const { user } = useSelector((state) => state.user);
   return (
     <div className=" w-full h-[80px] bg-white shadow top-0 z-30 flex items-center justify-between px-4">
-      <div>
+      <div className="mt-4">
         <Link to="/dashboard">
-          <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+        <img
+            src={img}
             alt=""
+            className="w-full h-[200px] object-contain"
           />
         </Link>
       </div>
