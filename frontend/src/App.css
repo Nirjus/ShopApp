@@ -52,18 +52,3 @@ input[type=number] {
   top: 28%;
   left: 7%;
 }
-
-.carousel .thumbs-wrapper {
-  margin: 20px;
-  overflow: hidden;
-  display: none;
-}
-
-.carousel .thumbs {
-  transition: all .15s ease-in;
-  transform: translate3d(0, 0, 0);
-  position: relative;
-  list-style: none;
-  white-space: nowrap;
-  display: none;
-}

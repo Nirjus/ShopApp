@@ -18,6 +18,8 @@ import { addTocart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const ProductDetails = ({ data }) => {
   const { cart } = useSelector((state) => state.cart);
@@ -109,39 +111,31 @@ const ProductDetails = ({ data }) => {
       {data ? (
         <div className={`${styles.section} w-[90%] 800px:w-[80%]`}>
           <div className=" w-full py-5">
-            <div className="block w-full 800px:flex">
-              <div className="w-full 800px:w-[50%]">
-                <img
-                  src={`${data && data.images[select]?.url}`}
-                  alt=""
-                  className=" w-[80%]"
-                />
-                <div className=" w-full flex">
-                  {data &&
-                    data.images.map((i, index) => (
-                      <div
-                        className={`${
-                          select === 0 ? "border" : "null"
-                        } cursor-pointer`}
-                      >
-                        <img
-                          src={`${i?.url}`}
-                          alt=""
-                          className=" h-[200px] overflow-hidden mr-3 mt-3"
-                          onClick={() => setSelect(index)}
-                        />
-                      </div>
-                    ))}
-                  <div
-                    className={`${
-                      select === 1 ? "border" : "null"
-                    } cursor-pointer`}
-                  ></div>
-                </div>
-              </div>
+            <div className="block w-full 800px:flex gap-4">
+
+              <Carousel
+                infiniteLoop
+                autoPlay
+                interval={10000}
+                showStatus={false}
+                showArrows={false}
+                className="w-full 800px:w-[50%] 800px:mr-4"
+              >
+                {data &&
+                  data.images.map((i, index) => (
+                    <div key={index} className=" cursor-pointer hover:scale-110 transition duration-500 ease-in-out">
+                     <img
+                        src={`${i?.url}`}
+                        alt=""
+                        className=" w-full object-contain"
+                      />
+                     </div>
+                  ))}
+              </Carousel>
+
               <div className=" w-full 800px:w-[50%] pt-5">
-                <h1 className={`${styles.productTitle} m-2`}>{data.name}</h1>
-                <p className=" m-2">{data.description}</p>
+                <h1 className={`${styles.productTitle} !text-[30px] font-extrabold uppercase !font-Poppins m-2`}>{data.name}</h1>
+                <p className=" m-2 font-Poppins">{data.description}</p>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice}`}>
                     {data.discountPrice}$
