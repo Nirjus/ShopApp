@@ -4,9 +4,9 @@ import styles from '../../styles/style';
 
 const BrandFilter = ({ brands, selectedBrand, onBrandChange }) => {
   return (
-    <div className=' p-2 pl-3 border-r-4 border-r-[#929191]'>
-      <h2 className=' text-[#553bfe] text-[25px] font-semibold'>Brand Filter</h2>
-      <select  className='border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out' value={selectedBrand} onChange={onBrandChange}>
+    <div className='cursor-pointer p-2 pl-3 border-[1px] border-[#c1c1c1] hover:bg-[#dcdcdc] duration-500'>
+      <h2 className='  text-[#1f1d2f] text-[20px] font-semibold mb-4'>Brand Filter</h2>
+      <select  className=' cursor-pointer bg-[#222222] text-[#fff] rounded-lg p-1' value={selectedBrand} onChange={onBrandChange}>
         <option value="">All Brands</option>
         {brands.map(brand => (
           <option key={brand} value={brand}>
@@ -21,9 +21,9 @@ const BrandFilter = ({ brands, selectedBrand, onBrandChange }) => {
 
 const PriceSort = ({ sortType, onSortChange }) => {
   return (
-    <div className=' p-2'>
-      <h2 className=' text-[#ff2282] text-[25px] font-semibold'>Price Sorting</h2>
-      <select className='border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out' value={sortType} onChange={onSortChange}>
+    <div className=' p-2 cursor-pointer border-[1px] border-[#c7c7c7] hover:bg-[#e0e0e0] duration-500'>
+    <h2 className=' text-[#322028] text-[20px] font-semibold mb-4'>Price Sorting</h2>
+    <select className=' cursor-pointer bg-[#222222] text-[#fff] rounded-lg p-1' value={sortType} onChange={onSortChange}>
         <option value="asc">Low to High</option>
         <option value="desc">High to Low</option>
       </select>
@@ -59,8 +59,8 @@ const ProductFiltering = ({ products = [] }) => {
 
   return (
     <div>
-     <div className=" rounded-lg shadow-lg w-[90%] flex items-center min-h-[140px] mx-auto m-5 bg-gradient-to-r from-white to-slate-500">
-    <div className="w-[40%] max-800px:w-full  flex flex-row items-center justify-center">
+     <div className=" rounded-lg shadow-lg w-[90%] flex items-center min-h-[140px] mx-auto m-5  bg-[#f0f0f0]">
+    <div className="w-[40%] max-800px:w-full  flex flex-row items-center justify-evenly">
     <BrandFilter
         brands={brands}
         selectedBrand={selectedBrand}

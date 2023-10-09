@@ -111,7 +111,7 @@ const ProductDetails = ({ data }) => {
       {data ? (
         <div className={`${styles.section} w-[90%] 800px:w-[80%]`}>
           <div className=" w-full py-5">
-            <div className="block w-full 800px:flex gap-4">
+            <div className="flex justify-evenly flex-col 800px:flex-row items-center gap-4">
 
               <Carousel
                 infiniteLoop
@@ -119,7 +119,7 @@ const ProductDetails = ({ data }) => {
                 interval={10000}
                 showStatus={false}
                 showArrows={false}
-                className="w-full 800px:w-[50%] 800px:mr-4"
+                className="w-full 800px:w-[40%] 800px:mr-4"
               >
                 {data &&
                   data.images.map((i, index) => (
@@ -127,7 +127,7 @@ const ProductDetails = ({ data }) => {
                      <img
                         src={`${i?.url}`}
                         alt=""
-                        className=" w-full object-contain"
+                        className=" w-full object-contain "
                       />
                      </div>
                   ))}
