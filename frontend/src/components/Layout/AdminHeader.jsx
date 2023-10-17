@@ -6,7 +6,7 @@ import { MdOutlineLocalOffer } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import img from "../../Assets/Smart ShopBV_1.png"
-
+import {TiTick} from "react-icons/ti"
 const AdminHeader = () => {
   const { user } = useSelector((state) => state.user);
   return (
@@ -57,12 +57,14 @@ const AdminHeader = () => {
               className=" mx-5 cursor-pointer"
             />
           </Link>
-
+           <div className=" flex flex-col justify-center items-center">
           <img
             src={`${user?.avatar?.url}`}
             alt=""
-            className=" w-[50px] h-[50px] rounded-full object-cover"
+            className=" w-[55px] h-[55px] rounded-full object-cover mb-[-2px]"
           />
+          <p className=" text-[12px] flex"><span className=" border rounded-full bg-[#3d53fe]"><TiTick size={15} color="white"/></span>ADMIN</p>
+          </div>
         </div>
       </div>
     </div>

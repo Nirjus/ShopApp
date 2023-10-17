@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getAllProductsShop } from "../../redux/actions/product";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import Loader from "../Layout/Loader";
 import { DataGrid } from "@material-ui/data-grid";
+import { MdUpdate } from "react-icons/md";
 
 const AllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { seller } = useSelector((state) => state.seller);
-
+const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -84,6 +85,25 @@ const AllProducts = () => {
           <>
             <Button onClick={() => handleDelete(params.id)}>
               <AiOutlineDelete size={20} />
+            </Button>
+          </>
+        );
+      },
+    },
+    {
+      field: "Update",
+      flex: 0.8,
+      minWidth: 120,
+      headerName: "",
+      sortable: false,
+      renderCell: (params) => {
+        const goToUpdate = (id) => {
+          navigate(`/update-product/${id}`)
+        }
+        return (
+          <>
+            <Button onClick={() => goToUpdate(params.id)}>
+              <MdUpdate size={20} />
             </Button>
           </>
         );

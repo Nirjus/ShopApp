@@ -60,6 +60,7 @@ import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import ProtectedAdminRoute from "./routes/ProtectedAdminRoute";
+import ShopProductUpdate from "./pages/Shop/ShopProductUpdate";
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
 
@@ -215,6 +216,14 @@ const App = () => {
           element={
             <SellerProtectedRoute>
               <ShopAllProducts />
+            </SellerProtectedRoute>
+          }
+        />
+        <Route
+          path="/update-product/:id"
+          element={
+            <SellerProtectedRoute>
+              <ShopProductUpdate />
             </SellerProtectedRoute>
           }
         />
