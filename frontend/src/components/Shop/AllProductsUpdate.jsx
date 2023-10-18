@@ -10,11 +10,12 @@ import { server } from "../../server";
 import { getAllProducts } from "../../redux/actions/product";
 const AllProductsUpdate = () => {
   const { allProducts } = useSelector((state) => state.products);
+  const { seller } = useSelector((state) => state.seller);
 
   const { id } = useParams();
   const product = allProducts?.find((i) => i._id === id);
   const dispatch = useDispatch();
-
+  
   const [images, setImages] = useState();
   const [name, setName] = useState(product?.name);
   const [description, setDescription] = useState(product?.description);
@@ -41,6 +42,7 @@ const AllProductsUpdate = () => {
           discountPrice,
           stock,
           images,
+          shopId: seller._id,
         },
         { withCredentials: true }
       )
