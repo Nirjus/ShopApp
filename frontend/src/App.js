@@ -61,6 +61,10 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import ProtectedAdminRoute from "./routes/ProtectedAdminRoute";
 import ShopProductUpdate from "./pages/Shop/ShopProductUpdate";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+import ShopForgotPasswordPage from "./pages/ShopForgotPasswordPage";
+import ShopResetPasswordPage from "./pages/ShopResetPasswordPage";
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
 
@@ -95,6 +99,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
         <Route path="/sign-up" element={<SignupPage />} />
         <Route
           path="/activation/:activation_token"
@@ -154,6 +160,9 @@ const App = () => {
         <Route path="/shop/preview/:id" element={<ShopPreviewPage />} />
         <Route path="/shop-create" element={<ShopCreatePage />} />
         <Route path="/shop-login" element={<ShopLoginPage />} />
+        <Route path="/shop-forgot-password" element={<ShopForgotPasswordPage />} />
+        <Route path="/shop/reset-password/:token" element={<ShopResetPasswordPage />} />
+        
         <Route
           path="/shop/:id"
           element={

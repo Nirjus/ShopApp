@@ -282,16 +282,14 @@ const Header = ({ activeHeading }) => {
                   value={searchTerm}
                   onChange={handelSearchChange}
                 />
-                {searchData && (
-                  <div className="absolute bg-[#fff] z-10 shadow w-full left-0 p-4">
+                {select && searchData && (
+                  <div className="absolute h-auto max-h-[50vh] overflow-y-scroll bg-[#fff] border rounded border-gray-500 z-10 shadow w-full left-0 p-4 no-scroll">
                     {searchData &&
                       searchData.map((i, index) => {
-                        // const d = i.name;
-
-                        // const Product_name = d.replace(/\s+/g, "-");
+                        const eventId = allEvents.find((j) => j._id === i._id);
                         return (
-                          <Link to={`/product/${i._id}`}>
-                            <div className=" w-full flex items-start py-3">
+                          <Link to={`/product/${i._id}${eventId ? "/?isEvent=true" : ""}`} reloadDocument={true} onClick={() => setSelect(false)}>
+                            <div className=" w-full flex items-start bg-[#fff] border hover:bg-gray-200 active:bg-gray-300 border-b-gray-500 py-3">
                               <img
                                 src={`${i.images[0]?.url}`}
                                 alt=""
