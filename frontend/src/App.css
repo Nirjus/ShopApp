@@ -18,6 +18,9 @@ body {
 input,select{
   outline: none;
 }
+.no-scroll::-webkit-scrollbar{
+  display: none;
+}
 .batch_heart{
   background: tomato;
   width: 15px;

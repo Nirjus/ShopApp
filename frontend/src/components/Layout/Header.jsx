@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/style";
-import { categoriesData, productData } from "../../static/data";
+import { categoriesData } from "../../static/data";
 import {
   AiOutlineHeart,
   AiOutlineSearch,
@@ -24,6 +24,7 @@ const Header = ({ activeHeading }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
   const { allProducts } = useSelector((state) => state.products);
+  const { allEvents } = useSelector((state) => state.events);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState("");
   const [active, setActive] = useState(false);
@@ -31,19 +32,32 @@ const Header = ({ activeHeading }) => {
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const [select, setSelect] = useState(false);
   const handelSearchChange = (e) => {
     const term = e.target.value;
+    
+    term === '' ? setSelect(false) : setSelect(true);
     setSearchTerm(term);
-
     const filteredProducts =
       allProducts &&
       allProducts.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
-    setSearchData(filteredProducts);
+      const filterEvent = 
+      allEvents &&
+      allEvents.filter((product) =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
+      
+      if(filterEvent){
+        for(let i=0; i<filterEvent.length; i++){
+               filteredProducts.push(filterEvent[i]);
+        }
+      }
+      console.log(filteredProducts);
+    setSearchData(filteredProducts); 
   };
-
+  
   window.addEventListener("scroll", () => {
     if (window.scrollY > 70) {
       setActive(true);
@@ -77,15 +91,14 @@ const Header = ({ activeHeading }) => {
               size={30}
               className="absolute right-2 top-1.5 cursor-pointer"
             />
-            {searchData && searchData.length !== 0 ? (
-              <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
-                {searchData &&
+            {select && searchData && searchData.length !== 0 ? (
+              <div className="absolute h-auto max-h-[90vh] overflow-y-scroll w-full border rounded border-gray-500 bg-slate-50 shadow z-[9] p-4 no-scroll">
+                { searchData &&
                   searchData.map((i, index) => {
-                    // const d = i.name;
-                    // const Product_name = d.replace(/\s+/g, "-");
+                  const eventId = allEvents.find((j) => j._id === i._id);
                     return (
-                      <Link to={`/product/${i._id}`}>
-                        <div className=" w-full flex items-start py-3">
+                      <Link to={`/product/${i._id}/${eventId ? "?isEvent=true": ""}`} reloadDocument={true} onClick={() => setSelect(false)}>
+                        <div className=" w-full flex bg-white border hover:bg-gray-200 active:bg-gray-300 border-b-gray-500 items-start py-3">
                           <img
                             src={`${i.images[0]?.url}`}
                             alt=""
