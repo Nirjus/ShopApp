@@ -13,7 +13,7 @@ const ProductsPage = () => {
   const categoryData = searchParams.get("category");
     const {allProducts,isLoading} = useSelector((state) => state.products);
   const [startIndex, setStartIndex] = useState(0);
-  const resultPerPage = 10;
+  const resultPerPage = 15;
   const [lastIndex, setLastIndex] = useState(resultPerPage);
 
   useEffect(() => {
@@ -41,7 +41,6 @@ const ProductsPage = () => {
       <div className="">
       <ProductFiltering products={data} startIndex={startIndex} lastIndex={lastIndex} />
       </div>
-      <br />
         <Pagination itemArray={data} resultPerPage={resultPerPage} 
         startIndex={startIndex} setStartIndex={setStartIndex}
            lastIndex={lastIndex} setLastIndex={setLastIndex} data={data}

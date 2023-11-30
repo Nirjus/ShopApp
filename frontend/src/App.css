@@ -55,3 +55,7 @@ input[type=number] {
   top: 28%;
   left: 7%;
 }
+
+.scrollvarhidden::-webkit-scrollbar{
+  display: none;
+}

@@ -77,13 +77,13 @@ console.log(allReviews);
       <br />
       {active === 1 && (
         <div>
-        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-12 border-0">
+        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-4 border-0">
           {products &&
             products.map((i, index) => (
               <ProductCard data={i} key={index} isShop={true} />
             ))}
         </div>
-           <div className=" py-4">
+           <div className=" pb-4">
             <Pagination itemArray={products}
               startIndex={startIndex} setStartIndex={setStartIndex}
               lastIndex={lastIndex} setLastIndex={setLastIndex}

@@ -12,7 +12,7 @@ const Pagination = ({itemArray:courses, data,startIndex,setStartIndex,lastIndex,
          setStartIndex(resultPerPage * index);
          setLastIndex(resultPerPage * index + resultPerPage);
          setFocus(index);
-         window.scrollTo(0,300);
+         window.scrollTo(0,100);
        };
      
        const setPrev = () => {
@@ -20,7 +20,7 @@ const Pagination = ({itemArray:courses, data,startIndex,setStartIndex,lastIndex,
          setStartIndex(startIndex-resultPerPage);
          setLastIndex(lastIndex - resultPerPage);
          setFocus(focus-1);
-         window.scrollTo(0,300);
+         window.scrollTo(0,100);
          }
        }
        const setNext = () => {
@@ -30,13 +30,13 @@ const Pagination = ({itemArray:courses, data,startIndex,setStartIndex,lastIndex,
              setStartIndex(startIndex+resultPerPage);
              setLastIndex(lastIndex+resultPerPage);
              setFocus(focus+1);
-             window.scrollTo(0,300);
+             window.scrollTo(0,100);
            }
          }
        }
   return (
     <div className="w-full 800px:mt-[80px] mb-1 flex justify-center items-center  ">
-            <button className=" border active:bg-slate-400 rounded-md dark:active:bg-slate-800 p-1 bg-slate-200 dark:bg-transparent text-black dark:text-white m-2"
+            <button className=" border active:bg-slate-600 rounded-md  p-1 bg-slate-400 text-black m-2"
             onClick={() => setPrev()}
             >
               prev
@@ -45,8 +45,8 @@ const Pagination = ({itemArray:courses, data,startIndex,setStartIndex,lastIndex,
               {
                 [...Array(totlaPagination)].map((item, index) => (
                   <button
-                    className={`min-w-[40px] min-h-[35px] rounded-md text-center  active:bg-slate-400 dark:active:bg-slate-800 text-black dark:text-white m-1
-                    ${focus === index ? " bg-blue-400" : "bg-slate-200 dark:bg-slate-700"}
+                    className={`min-w-[40px] min-h-[35px] rounded-md text-center  active:bg-slate-400 text-black m-1
+                    ${focus === index ? " bg-blue-400" : "bg-slate-400 "}
                     `}
                     key={index}
                     onClick={() => pageChangeHandeler(index)}
@@ -55,7 +55,7 @@ const Pagination = ({itemArray:courses, data,startIndex,setStartIndex,lastIndex,
                   </button>
                 ))}
             </div>
-            <button className=" border p-1 active:bg-slate-400 rounded-md dark:active:bg-slate-800 bg-slate-200 dark:bg-transparent text-black dark:text-white m-2"
+            <button className=" border p-1 active:bg-slate-600 rounded-md bg-slate-400 text-black m-2"
             onClick={() => setNext()}
             >
               next
