@@ -26,7 +26,7 @@ const ProductsPage = () => {
       setData(d);
     }
     //   window.scrollTo(0,0)
-  }, [allProducts]);
+  }, [allProducts, categoryData]);
 
   return (
    <>
@@ -43,7 +43,7 @@ const ProductsPage = () => {
       </div>
         <Pagination itemArray={data} resultPerPage={resultPerPage} 
         startIndex={startIndex} setStartIndex={setStartIndex}
-           lastIndex={lastIndex} setLastIndex={setLastIndex} data={data}
+           lastIndex={lastIndex} setLastIndex={setLastIndex}
           />
       <br />
       <Footer />
