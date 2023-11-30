@@ -7,11 +7,15 @@ import { getAllProductsShop } from "../../redux/actions/product";
 import { getAllEventsShop } from "../../redux/actions/event";
 import Ratings from "../Products/Ratings";
 import { format } from "timeago.js";
+import Pagination from "../Pagination";
 
 const ShopProfileData = ({ isOwner }) => {
   const { products } = useSelector((state) => state.products);
   const { events } = useSelector((state) => state.events);
   const { seller } = useSelector((state) => state.seller);
+  const [startIndex, setStartIndex] = useState(0);
+  const resultPerPage = 8;
+  const [lastIndex, setLastIndex] = useState(resultPerPage);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -72,11 +76,21 @@ console.log(allReviews);
 
       <br />
       {active === 1 && (
+        <div>
         <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-12 border-0">
           {products &&
             products.map((i, index) => (
               <ProductCard data={i} key={index} isShop={true} />
             ))}
+        </div>
+           <div className=" py-4">
+            <Pagination itemArray={products}
+              startIndex={startIndex} setStartIndex={setStartIndex}
+              lastIndex={lastIndex} setLastIndex={setLastIndex}
+              resultPerPage={resultPerPage}
+              data={products}
+            />
+           </div>
         </div>
       )}
 

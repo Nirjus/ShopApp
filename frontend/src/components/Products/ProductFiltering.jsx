@@ -31,7 +31,7 @@ const PriceSort = ({ sortType, onSortChange }) => {
   );
 };
 
-const ProductFiltering = ({ products = [] }) => {
+const ProductFiltering = ({ products = [], startIndex, lastIndex }) => {
   const [selectedBrand, setSelectedBrand] = useState('');
   const [sortType, setSortType] = useState('asc');
 
@@ -71,7 +71,7 @@ const ProductFiltering = ({ products = [] }) => {
      </div>
       <div className={`${styles.section}`}>
         <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12">
-        {sortedProducts.map(product => (
+        {sortedProducts.slice(startIndex, lastIndex).map(product => (
           <ProductCard data={product} key={product} />
         ))}
         </div>
