@@ -26,7 +26,7 @@ const ProductsPage = () => {
       setData(d);
     }
     //   window.scrollTo(0,0)
-  }, [allProducts, categoryData]);
+  }, [allProducts]);
 
   return (
    <>
