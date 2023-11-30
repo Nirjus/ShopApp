@@ -79,17 +79,15 @@ const ProductFiltering = ({ products = [] }) => {
           <ProductCard data={product} key={product} />
         ))}
         </div>
-        <br />
-        <br />
-        <Pagination itemArray={sortedProducts} resultPerPage={resultPerPage} 
-        startIndex={startIndex} setStartIndex={setStartIndex}
-           lastIndex={lastIndex} setLastIndex={setLastIndex} data={sortedProducts}
-          />
         {products && products.length === 0 ? (
           <h1 className=" text-center w-full pb-[100px] text-[20px]">
             No Products Found!
           </h1>
         ) : null}
+         <Pagination itemArray={sortedProducts} resultPerPage={resultPerPage} 
+        startIndex={startIndex} setStartIndex={setStartIndex}
+           lastIndex={lastIndex} setLastIndex={setLastIndex} data={sortedProducts}
+          />
       </div>
     </div>
   );
