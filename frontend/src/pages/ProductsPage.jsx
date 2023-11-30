@@ -5,16 +5,12 @@ import { useSelector } from "react-redux";
 import Loader from "../components/Layout/Loader";
 import Footer from "../components/Layout/Footer";
 import ProductFiltering from "../components/Products/ProductFiltering";
-import Pagination from "../components/Pagination";
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
   const [data, setData] = useState([]);
   const categoryData = searchParams.get("category");
     const {allProducts,isLoading} = useSelector((state) => state.products);
-  const [startIndex, setStartIndex] = useState(0);
-  const resultPerPage = 15;
-  const [lastIndex, setLastIndex] = useState(resultPerPage);
 
   useEffect(() => {
     if (categoryData === null) {
@@ -39,12 +35,9 @@ const ProductsPage = () => {
       <br />
       <br />
       <div className="">
-      <ProductFiltering products={data} startIndex={startIndex} lastIndex={lastIndex} />
+      <ProductFiltering products={data} />
       </div>
-        <Pagination itemArray={data} resultPerPage={resultPerPage} 
-        startIndex={startIndex} setStartIndex={setStartIndex}
-           lastIndex={lastIndex} setLastIndex={setLastIndex}
-          />
+        <br />
       <br />
       <Footer />
     </div>

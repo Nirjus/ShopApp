@@ -34,6 +34,9 @@ const Pagination = ({itemArray:courses, data,startIndex,setStartIndex,lastIndex,
            }
          }
        }
+       if(totlaPagination < 0){
+        totlaPagination = 1;
+       }
   return (
     <div className="w-full 800px:mt-[80px] mb-1 flex justify-center items-center  ">
             <button className=" border active:bg-slate-600 rounded-md  p-1 bg-slate-400 text-black m-2"

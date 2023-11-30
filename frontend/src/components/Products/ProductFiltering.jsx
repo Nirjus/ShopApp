@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProductCard from '../Route/ProductCard/ProductCard';
 import styles from '../../styles/style';
+import Pagination from '../Pagination';
 
 const BrandFilter = ({ brands, selectedBrand, onBrandChange }) => {
   return (
@@ -31,7 +32,10 @@ const PriceSort = ({ sortType, onSortChange }) => {
   );
 };
 
-const ProductFiltering = ({ products = [], startIndex, lastIndex }) => {
+const ProductFiltering = ({ products = [] }) => {
+  const [startIndex, setStartIndex] = useState(0);
+  const resultPerPage = 15;
+  const [lastIndex, setLastIndex] = useState(resultPerPage);
   const [selectedBrand, setSelectedBrand] = useState('');
   const [sortType, setSortType] = useState('asc');
 
@@ -75,6 +79,12 @@ const ProductFiltering = ({ products = [], startIndex, lastIndex }) => {
           <ProductCard data={product} key={product} />
         ))}
         </div>
+        <br />
+        <br />
+        <Pagination itemArray={sortedProducts} resultPerPage={resultPerPage} 
+        startIndex={startIndex} setStartIndex={setStartIndex}
+           lastIndex={lastIndex} setLastIndex={setLastIndex} data={sortedProducts}
+          />
         {products && products.length === 0 ? (
           <h1 className=" text-center w-full pb-[100px] text-[20px]">
             No Products Found!
