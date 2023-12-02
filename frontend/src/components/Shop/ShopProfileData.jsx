@@ -84,12 +84,15 @@ console.log(allReviews);
             ))}
         </div>
            <div className=" pb-4">
+            { products && (
             <Pagination itemArray={products}
               startIndex={startIndex} setStartIndex={setStartIndex}
               lastIndex={lastIndex} setLastIndex={setLastIndex}
               resultPerPage={resultPerPage}
               data={products}
             />
+            )  
+          }
            </div>
         </div>
       )}
